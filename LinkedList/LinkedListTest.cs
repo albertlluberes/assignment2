@@ -1,158 +1,162 @@
-using Xunit;
-using LinkedListNamespace;  
+using System.Collections.Generic;  
+using LinkedListNamespace;          
 
 namespace LinkedListTests
 {
     public class LinkedListTests
     {
         [Fact]
-public void Insert_AppendsElementToTail()
-{
-    var list = new LinkedList<string>();
-    list.Insert("first");
-    list.Insert("second");
-    Assert.Equal("second", list.Get(1));
-}
-[Fact]
-public void InsertAtIndex_InsertsElementAtCorrectPosition()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
-    list.Insert("d");
+        public void Insert_()
+        {
+            
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("first");
+            list.Insert("second");
+            Assert.Equal("second", list.Get(1));
+        }
 
-    list.InsertAtIndex(2, "c");
+        [Fact]
+        public void InsertAtIndex_()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("d");
 
-    Assert.Equal("c", list.Get(2));
-}
-[Fact]
-public void DeleteElement_()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
-    list.Insert("c");
+            list.InsertAtIndex(2, "c");
 
-    bool result = list.DeleteElement("b");
+            Assert.Equal("c", list.Get(2));
+        }
 
-    Assert.True(result);
-    Assert.Equal("a", list.Get(0));
-    Assert.Equal("c", list.Get(1));
-}
-[Fact]
-public void DeleteAtIndex_()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
-    list.Insert("c");
+        [Fact]
+        public void DeleteElement_()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
 
-    bool result = list.DeleteAtIndex(1);
+            bool result = list.DeleteElement("b");
 
-    Assert.True(result);
-    Assert.Equal("a", list.Get(0));
-    Assert.Equal("c", list.Get(1));
-}
-[Fact]
-public void UpdateElement_()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
-    list.Insert("c");
+            Assert.True(result);
+            Assert.Equal("a", list.Get(0));
+            Assert.Equal("c", list.Get(1));
+        }
 
-    bool result = list.UpdateElement("b", "x");
+        [Fact]
+        public void DeleteAtIndex_()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
 
-    Assert.True(result);
-    Assert.Equal("a", list.Get(0));
-    Assert.Equal("x", list.Get(1));
-    Assert.Equal("c", list.Get(2));
-}
+            bool result = list.DeleteAtIndex(1);
 
-[Fact]
-public void UpdateElement_()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
+            Assert.True(result);
+            Assert.Equal("a", list.Get(0));
+            Assert.Equal("c", list.Get(1));
+        }
 
-    bool result = list.UpdateElement("z", "x");
+        [Fact]
+        public void UpdateElement_()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
 
-    Assert.False(result);
-}
-[Fact]
-public void UpdateElementAtIndex()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
-    list.Insert("c");
+            bool result = list.UpdateElement("b", "x");
 
-    bool result = list.UpdateElementAtIndex(1, "x");
+            Assert.True(result);
+            Assert.Equal("a", list.Get(0));
+            Assert.Equal("x", list.Get(1));
+            Assert.Equal("c", list.Get(2));
+        }
 
-    Assert.True(result);
-    Assert.Equal("a", list.Get(0));
-    Assert.Equal("x", list.Get(1));
-    Assert.Equal("c", list.Get(2));
-}
+        [Fact]
+        public void UpdateElement_ReturnsFalseIfElementNotFound()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
 
-[Fact]
-public void UpdateElementAtIndex_ReturnsFalseIfOutOfBounds()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
+            bool result = list.UpdateElement("z", "x");
 
-    bool result = list.UpdateElementAtIndex(5, "x");
+            Assert.False(result);
+        }
 
-    Assert.False(result);
-}
-[Fact]
-public void Find_Returns()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
-    list.Insert("c");
+        [Fact]
+        public void UpdateElementAtIndex()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
 
-    Assert.True(list.Find("b"));
-    Assert.True(list.Find("a"));
-    Assert.True(list.Find("c"));
-}
+            bool result = list.UpdateElementAtIndex(1, "x");
 
-[Fact]
-public void Find_ReturnsFalseIfElementDoesNotExist()
-{
-    var list = new LinkedList<string>();
-    list.Insert("a");
-    list.Insert("b");
+            Assert.True(result);
+            Assert.Equal("a", list.Get(0));
+            Assert.Equal("x", list.Get(1));
+            Assert.Equal("c", list.Get(2));
+        }
 
-    Assert.False(list.Find("z"));
-}
-[Fact]
-public void Get_ReturnsCorrectElementAtIndex()
-{
-    var list = new LinkedList<int>();
-    list.Insert(10);
-    list.Insert(20);
-    list.Insert(30);
+        [Fact]
+        public void UpdateElementAtIndex_ReturnsFalseIfOutOfBounds()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
 
-    Assert.Equal(10, list.Get(0));
-    Assert.Equal(20, list.Get(1));
-    Assert.Equal(30, list.Get(2));
-}
+            bool result = list.UpdateElementAtIndex(5, "x");
 
-[Fact]
-public void Get_ThrowsException()
-{
-    var list = new LinkedList<int>();
-    list.Insert(10);
+            Assert.False(result);
+        }
 
-    Assert.Throws<ArgumentOutOfRangeException>(() => list.Get(2));
-}
+        [Fact]
+        public void Find()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
 
+            Assert.True(list.Find("b"));
+            Assert.True(list.Find("a"));
+            Assert.True(list.Find("c"));
+        }
+
+        [Fact]
+        public void Find_ReturnsFalseIfElementDoesNotExist()
+        {
+            LinkedListNamespace.LinkedList<string> list = new LinkedListNamespace.LinkedList<string>();
+            list.Insert("a");
+            list.Insert("b");
+
+            Assert.False(list.Find("z"));
+        }
+
+        [Fact]
+        public void Get()
+        {
+            LinkedListNamespace.LinkedList<int> list = new LinkedListNamespace.LinkedList<int>();
+            list.Insert(10);
+            list.Insert(20);
+            list.Insert(30);
+
+            Assert.Equal(10, list.Get(0));
+            Assert.Equal(20, list.Get(1));
+            Assert.Equal(30, list.Get(2));
+        }
+
+        [Fact]
+        public void Get_ThrowsExceptionIfIndexOutOfRange()
+        {
+            LinkedListNamespace.LinkedList<int> list = new LinkedListNamespace.LinkedList<int>();
+            list.Insert(10);
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Get(2));
+        }
     }
-
 }
-    
-
