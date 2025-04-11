@@ -113,4 +113,25 @@ public bool UpdateElement(T oldData, T newData)
     return false;
 }
 
+public bool UpdateElementAtIndex(int index, T data)
+{
+    if (index < 0) return false;
+
+    var current = _head;
+    int currentIndex = 0;
+
+    while (current != null)
+    {
+        if (currentIndex == index)
+        {
+            current.Data = data;
+            return true;
+        }
+
+        current = current.Next;
+        currentIndex++;
+    }
+
+    return false;
+}
 
