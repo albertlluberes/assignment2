@@ -15,6 +15,8 @@ public void Insert(T data)
     }
     current.Next = newNode;
 }
+///Inserts data at the specified index of the linked list
+/// Throws ArgumentOutOfRangeException if index is invalid
 public void InsertAtIndex(int index, T data)
 {
     var newNode = new Node<T>(data);
