@@ -122,6 +122,28 @@ public void Find_ReturnsFalseIfElementDoesNotExist()
 
     Assert.False(list.Find("z"));
 }
+[Fact]
+public void Get_ReturnsCorrectElementAtIndex()
+{
+    var list = new LinkedList<int>();
+    list.Insert(10);
+    list.Insert(20);
+    list.Insert(30);
+
+    Assert.Equal(10, list.Get(0));
+    Assert.Equal(20, list.Get(1));
+    Assert.Equal(30, list.Get(2));
+}
+
+[Fact]
+public void Get_ThrowsException()
+{
+    var list = new LinkedList<int>();
+    list.Insert(10);
+
+    Assert.Throws<ArgumentOutOfRangeException>(() => list.Get(2));
+}
+
 
 
 
