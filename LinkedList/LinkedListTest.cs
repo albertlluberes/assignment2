@@ -32,4 +32,18 @@ public void DeleteElement_()
     Assert.Equal("a", list.Get(0));
     Assert.Equal("c", list.Get(1));
 }
+[Fact]
+public void DeleteAtIndex_()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+    list.Insert("c");
+
+    bool result = list.DeleteAtIndex(1);
+
+    Assert.True(result);
+    Assert.Equal("a", list.Get(0));
+    Assert.Equal("c", list.Get(1));
+}
 
