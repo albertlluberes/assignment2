@@ -66,7 +66,8 @@ public bool DeleteElement(T data)
     }
 
     return false;
-}
+}///Deletes the element at the specified index
+/// Returns false if index is out of bounds
 public bool DeleteAtIndex(int index)
 {
     if (index < 0 || _head == null) return false;
