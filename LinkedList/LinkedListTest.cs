@@ -100,5 +100,28 @@ public void UpdateElementAtIndex_ReturnsFalseIfOutOfBounds()
 
     Assert.False(result);
 }
+[Fact]
+public void Find_Returns()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+    list.Insert("c");
+
+    Assert.True(list.Find("b"));
+    Assert.True(list.Find("a"));
+    Assert.True(list.Find("c"));
+}
+
+[Fact]
+public void Find_ReturnsFalseIfElementDoesNotExist()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+
+    Assert.False(list.Find("z"));
+}
+
 
 
