@@ -73,5 +73,32 @@ public void UpdateElement_()
 
     Assert.False(result);
 }
+[Fact]
+public void UpdateElementAtIndex()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+    list.Insert("c");
+
+    bool result = list.UpdateElementAtIndex(1, "x");
+
+    Assert.True(result);
+    Assert.Equal("a", list.Get(0));
+    Assert.Equal("x", list.Get(1));
+    Assert.Equal("c", list.Get(2));
+}
+
+[Fact]
+public void UpdateElementAtIndex_ReturnsFalseIfOutOfBounds()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+
+    bool result = list.UpdateElementAtIndex(5, "x");
+
+    Assert.False(result);
+}
 
 
