@@ -148,7 +148,10 @@ public bool Find(T data)
     }
 
     return false;
-}
+}///Returns the element at the specified index.
+/// </summary>
+/// <param name="index">The index of the element to retrieve.</param>
+/// <returns>The element at the specified index.</returns>
 public T Get(int index)
 {
     var current = _head;
