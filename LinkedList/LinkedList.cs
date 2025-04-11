@@ -15,3 +15,29 @@ public void Insert(T data)
     }
     current.Next = newNode;
 }
+public void InsertAtIndex(int index, T data)
+{
+    var newNode = new Node<T>(data);
+    if (index == 0)
+    {
+        newNode.Next = _head;
+        _head = newNode;
+        return;
+    }
+
+    var current = _head;
+    int currentIndex = 0;
+    while (current != null && currentIndex < index - 1)
+    {
+        current = current.Next;
+        currentIndex++;
+    }
+
+    if (current == null)
+    {
+        throw new ArgumentOutOfRangeException(nameof(index), "Index out of range");
+    }
+
+    newNode.Next = current.Next;
+    current.Next = newNode;
+}
