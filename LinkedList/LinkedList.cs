@@ -94,6 +94,8 @@ public bool DeleteAtIndex(int index)
 
     return false;
 }
+///Updates the first element matching oldData with newData
+/// Returns true if an element was updated, otherwise false
 public bool UpdateElement(T oldData, T newData)
 {
     var current = _head;
