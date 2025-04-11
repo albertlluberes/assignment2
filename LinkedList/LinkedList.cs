@@ -42,7 +42,8 @@ public void InsertAtIndex(int index, T data)
 
     newNode.Next = current.Next;
     current.Next = newNode;
-}
+}///Deletes the first occurrence of the specified data in the list
+/// Returns true if an element was deleted, otherwise  will retrn false
 public bool DeleteElement(T data)
 {
     if (_head == null) return false;
