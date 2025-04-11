@@ -1,5 +1,8 @@
 namespace StaticLinkedListNamespace
 {
+    /// <summary>
+    /// A statically allocated linked list using a fixed-size array of 100 nodes.
+    /// </summary>
     public class StaticLinkedList<T>
     {
         private const int MaxSize = 100;
@@ -16,6 +19,9 @@ namespace StaticLinkedListNamespace
         private int _free = 0;
         private int _size = 0;
 
+        /// <summary>
+        /// Initializes the free list.
+        /// </summary>
         public StaticLinkedList()
         {
             for (int i = 0; i < MaxSize - 1; i++)
@@ -25,6 +31,9 @@ namespace StaticLinkedListNamespace
             _nodes[MaxSize - 1].Next = -1;
         }
 
+        /// <summary>
+        /// Inserts data at the tail of the list.
+        /// </summary>
         public void Insert(T data)
         {
             if (_free == -1) return;
@@ -52,6 +61,9 @@ namespace StaticLinkedListNamespace
             _size++;
         }
 
+        /// <summary>
+        /// Inserts data at the specified index.
+        /// </summary>
         public void InsertAtIndex(int index, T data)
         {
             if (index < 0 || index > _size || _free == -1) return;
@@ -80,6 +92,10 @@ namespace StaticLinkedListNamespace
             _size++;
         }
 
+        /// <summary>
+        /// Deletes the first element that matches the given data.
+        /// </summary>
+        /// <returns>True if deleted, otherwise false.</returns>
         public bool DeleteElement(T data)
         {
             int current = _head;
@@ -106,6 +122,10 @@ namespace StaticLinkedListNamespace
             return false;
         }
 
+        /// <summary>
+        /// Deletes the element at the specified index.
+        /// </summary>
+        /// <returns>True if deleted, otherwise false.</returns>
         public bool DeleteAtIndex(int index)
         {
             if (index < 0 || index >= _size) return false;
@@ -129,6 +149,10 @@ namespace StaticLinkedListNamespace
             return true;
         }
 
+        /// <summary>
+        /// Updates the first element equal to oldData with newData.
+        /// </summary>
+        /// <returns>True if updated, otherwise false.</returns>
         public bool UpdateElement(T oldData, T newData)
         {
             int current = _head;
@@ -146,6 +170,10 @@ namespace StaticLinkedListNamespace
             return false;
         }
 
+        /// <summary>
+        /// Updates the value at the specified index.
+        /// </summary>
+        /// <returns>True if updated, otherwise false.</returns>
         public bool UpdateElementAtIndex(int index, T data)
         {
             if (index < 0 || index >= _size) return false;
@@ -158,6 +186,10 @@ namespace StaticLinkedListNamespace
             return true;
         }
 
+        /// <summary>
+        /// Searches the list for a value.
+        /// </summary>
+        /// <returns>True if found, otherwise false.</returns>
         public bool Find(T data)
         {
             int current = _head;
@@ -170,6 +202,9 @@ namespace StaticLinkedListNamespace
             return false;
         }
 
+        /// <summary>
+        /// Gets the value at a given index.
+        /// </summary>
         public T Get(int index)
         {
             if (index < 0 || index >= _size)
@@ -182,6 +217,9 @@ namespace StaticLinkedListNamespace
             return _nodes[current].Data;
         }
 
+        /// <summary>
+        /// Frees the node at the given index, returning it to the free list.
+        /// </summary>
         private void FreeNode(int index)
         {
             _nodes[index].IsUsed = false;
