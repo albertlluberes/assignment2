@@ -94,4 +94,20 @@ public bool DeleteAtIndex(int index)
 
     return false;
 }
+public bool UpdateElement(T oldData, T newData)
+{
+    var current = _head;
+
+    while (current != null)
+    {
+        if (current.Data.Equals(oldData))
+        {
+            current.Data = newData;
+            return true;
+        }
+        current = current.Next;
+    }
+
+    return false;
+}
 
