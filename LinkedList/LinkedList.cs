@@ -1,4 +1,6 @@
-///Inserts data at the end (tail) of the linked list.
+namespace LinkedListNamespace
+{
+    ///Inserts data at the end (tail) of the linked list.
 public void Insert(T data)
 {
     var newNode = new Node<T>(data);
@@ -170,4 +172,4 @@ public T Get(int index)
 }
 
 
-
+}

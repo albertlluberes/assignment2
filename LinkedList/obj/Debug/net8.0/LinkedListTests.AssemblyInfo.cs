@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LinkedListTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2e7fbf813263b449bceb6f84e270f4519073340")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c35e1da930328e8d37a355680766991bef0bf7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LinkedListTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LinkedListTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
