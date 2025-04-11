@@ -135,7 +135,7 @@ public bool UpdateElementAtIndex(int index, T data)
     }
 
     return false;
-}
+}///Checks if an element matching the specified data exists in the list
 public bool Find(T data)
 {
     var current = _head;
