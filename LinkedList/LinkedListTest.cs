@@ -1,4 +1,11 @@
-[Fact]
+using Xunit;
+using LinkedListNamespace;  
+
+namespace LinkedListTests
+{
+    public class LinkedListTests
+    {
+        [Fact]
 public void Insert_AppendsElementToTail()
 {
     var list = new LinkedList<string>();
@@ -144,6 +151,8 @@ public void Get_ThrowsException()
     Assert.Throws<ArgumentOutOfRangeException>(() => list.Get(2));
 }
 
+    }
 
-
+}
+    
 
