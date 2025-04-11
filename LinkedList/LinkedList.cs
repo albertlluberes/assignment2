@@ -136,4 +136,18 @@ public bool UpdateElementAtIndex(int index, T data)
 
     return false;
 }
+public bool Find(T data)
+{
+    var current = _head;
+    while (current != null)
+    {
+        if (EqualityComparer<T>.Default.Equals(current.Data, data))
+            return true;
+
+        current = current.Next;
+    }
+
+    return false;
+}
+
 
