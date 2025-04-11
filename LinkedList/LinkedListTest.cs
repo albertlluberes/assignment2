@@ -46,4 +46,32 @@ public void DeleteAtIndex_()
     Assert.Equal("a", list.Get(0));
     Assert.Equal("c", list.Get(1));
 }
+[Fact]
+public void UpdateElement_()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+    list.Insert("c");
+
+    bool result = list.UpdateElement("b", "x");
+
+    Assert.True(result);
+    Assert.Equal("a", list.Get(0));
+    Assert.Equal("x", list.Get(1));
+    Assert.Equal("c", list.Get(2));
+}
+
+[Fact]
+public void UpdateElement_()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+
+    bool result = list.UpdateElement("z", "x");
+
+    Assert.False(result);
+}
+
 
