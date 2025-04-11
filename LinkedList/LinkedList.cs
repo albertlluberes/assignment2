@@ -43,3 +43,26 @@ public void InsertAtIndex(int index, T data)
     newNode.Next = current.Next;
     current.Next = newNode;
 }
+public bool DeleteElement(T data)
+{
+    if (_head == null) return false;
+
+    if (_head.Data.Equals(data))
+    {
+        _head = _head.Next;
+        return true;
+    }
+
+    var current = _head;
+    while (current.Next != null)
+    {
+        if (current.Next.Data.Equals(data))
+        {
+            current.Next = current.Next.Next;
+            return true;
+        }
+        current = current.Next;
+    }
+
+    return false;
+}
