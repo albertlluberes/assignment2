@@ -149,5 +149,22 @@ public bool Find(T data)
 
     return false;
 }
+public T Get(int index)
+{
+    var current = _head;
+    int currentIndex = 0;
+
+    while (current != null)
+    {
+        if (currentIndex == index)
+            return current.Data;
+
+        current = current.Next;
+        currentIndex++;
+    }
+
+    throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range");
+}
+
 
 
