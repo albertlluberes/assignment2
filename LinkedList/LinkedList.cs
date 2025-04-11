@@ -67,3 +67,30 @@ public bool DeleteElement(T data)
 
     return false;
 }
+public bool DeleteAtIndex(int index)
+{
+    if (index < 0 || _head == null) return false;
+
+    if (index == 0)
+    {
+        _head = _head.Next;
+        return true;
+    }
+
+    var current = _head;
+    int count = 0;
+
+    while (current.Next != null)
+    {
+        if (count == index - 1)
+        {
+            current.Next = current.Next.Next;
+            return true;
+        }
+        current = current.Next;
+        count++;
+    }
+
+    return false;
+}
+
