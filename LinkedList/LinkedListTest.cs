@@ -18,3 +18,18 @@ public void InsertAtIndex_InsertsElementAtCorrectPosition()
 
     Assert.Equal("c", list.Get(2));
 }
+[Fact]
+public void DeleteElement_()
+{
+    var list = new LinkedList<string>();
+    list.Insert("a");
+    list.Insert("b");
+    list.Insert("c");
+
+    bool result = list.DeleteElement("b");
+
+    Assert.True(result);
+    Assert.Equal("a", list.Get(0));
+    Assert.Equal("c", list.Get(1));
+}
+
